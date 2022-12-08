@@ -6,7 +6,7 @@ public class InputSizeValidator {
 
     public static void checkInputSize(String inputSize) {
         checkSizeRange(inputSize);
-
+        checkType(inputSize);
     }
 
     private static void checkSizeRange(String inputSize) {
@@ -16,5 +16,10 @@ public class InputSizeValidator {
         }
     }
 
-
+    private static void checkType(String inputSize) {
+        String regex = "^[0-9]*$";
+        if (!inputSize.matches(regex)) {
+            System.out.println(ErrorMessage.ERROR_INPUT_TYPE.getError());
+        }
+    }
 }
