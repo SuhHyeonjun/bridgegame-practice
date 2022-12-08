@@ -5,8 +5,9 @@ import bridge.view.ErrorMessage;
 public class InputSizeValidator {
 
     public static void checkInputSize(String inputSize) {
-        checkSizeRange(inputSize);
         checkType(inputSize);
+        InputCommonValidator.checkNull(inputSize);
+        checkSizeRange(inputSize);
     }
 
     private static void checkSizeRange(String inputSize) {
@@ -19,7 +20,7 @@ public class InputSizeValidator {
     private static void checkType(String inputSize) {
         String regex = "^[0-9]*$";
         if (!inputSize.matches(regex)) {
-            System.out.println(ErrorMessage.ERROR_INPUT_TYPE.getError());
+            throw new IllegalArgumentException(ErrorMessage.ERROR_INPUT_TYPE.getError());
         }
     }
 }
