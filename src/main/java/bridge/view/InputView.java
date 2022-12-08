@@ -2,6 +2,7 @@ package bridge.view;
 
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
+import bridge.validator.InputMovingValidator;
 import bridge.validator.InputSizeValidator;
 
 /**
@@ -29,7 +30,15 @@ public class InputView {
      * 사용자가 이동할 칸을 입력받는다.
      */
     public String readMoving() {
-        return null;
+        System.out.println(Message.INPUT_MOVE.getMessage());
+        String inputMove = readLine();
+        try {
+            InputMovingValidator.checkInputMove(inputMove);
+        } catch (Exception error) {
+            System.out.println(error.getMessage());
+            return readMoving();
+        }
+        return inputMove;
     }
 
     /**
