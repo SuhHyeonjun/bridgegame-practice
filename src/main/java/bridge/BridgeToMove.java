@@ -28,4 +28,12 @@ public class BridgeToMove {
             downBridge.add(move);
         }
     }
+
+    public static List<String> getUpBridge() {
+        return upBridge;
+    }
+
+    public static List<String> getDownBridge() {
+        return downBridge;
+    }
 }
