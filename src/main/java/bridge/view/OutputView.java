@@ -25,6 +25,7 @@ public class OutputView {
     public void printMap() {
         System.out.println(LEFT + joinCenterBar(getUpBridge()) + RIGHT);
         System.out.println(LEFT + joinCenterBar(getDownBridge()) + RIGHT);
+        System.out.println();
     }
 
     private String joinCenterBar(List<String> upDownBridges) {
