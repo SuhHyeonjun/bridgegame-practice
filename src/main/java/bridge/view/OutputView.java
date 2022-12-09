@@ -12,6 +12,8 @@ public class OutputView {
     private static final String CENTER_BAR = " | ";
     private static final String LEFT = "[ ";
     private static final String RIGHT = " ]";
+    private static final String SUCCESS = "성공";
+    private static final String FAIL = "실패";
 
 
     /**
@@ -35,5 +37,17 @@ public class OutputView {
      */
     public void printResult() {
         System.out.println(Message.GAME_RESULT.getMessage());
+        printMap();
+        System.out.println();
+        printSuccessOrFailure();
+        printTryCount();
+    }
+
+    private static void printSuccessOrFailure() {
+        System.out.println(Message.SUCCESS_OR_FAILURE.getMessage());
+    }
+
+    private static void printTryCount() {
+        System.out.println(Message.TRY_COUNT.getMessage());
     }
 }
