@@ -10,9 +10,14 @@ public class BridgeToMove {
     private static final String DOWN = "D";
     private static final String BLANK = " ";
 
-    public void makeMoveBridge(String moveCommand, String move) {
+    public static void makeMoveBridge(String moveCommand, String move) {
         addUpBridge(moveCommand, move);
         addDownBridge(moveCommand, move);
+    }
+
+    public static void initBridges() {
+        upBridge.clear();
+        downBridge.clear();
     }
 
     private static void addUpBridge(String moveCommand, String move) {
