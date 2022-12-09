@@ -3,6 +3,7 @@ package bridge.view;
 import static camp.nextstep.edu.missionutils.Console.readLine;
 
 import bridge.validator.InputMovingValidator;
+import bridge.validator.InputRestartValidator;
 import bridge.validator.InputSizeValidator;
 
 /**
@@ -18,7 +19,7 @@ public class InputView {
         String inputSize = readLine();
         try {
             InputSizeValidator.checkInputSize(inputSize);
-        } catch (Exception error) {
+        } catch (IllegalArgumentException error) {
             System.out.println(error.getMessage());
             return readBridgeSize();
         }
@@ -34,7 +35,7 @@ public class InputView {
         String inputMove = readLine();
         try {
             InputMovingValidator.checkInputMove(inputMove);
-        } catch (Exception error) {
+        } catch (IllegalArgumentException error) {
             System.out.println(error.getMessage());
             return readMoving();
         }
@@ -46,6 +47,14 @@ public class InputView {
      * 사용자가 게임을 다시 시도할지 종료할지 여부를 입력받는다.
      */
     public String readGameCommand() {
-        return null;
+        System.out.println(Message.INPUT_RETRY.getMessage());
+        String inputRestart = readLine();
+        try {
+            InputRestartValidator.checkInputRestart(inputRestart);
+        } catch (IllegalArgumentException error) {
+            System.out.println(error.getMessage());
+            return readGameCommand();
+        }
+        return inputRestart;
     }
 }
