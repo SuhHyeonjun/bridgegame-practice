@@ -30,9 +30,9 @@ public class GameController {
     public void start() {
         int bridgeSize = inputView.readBridgeSize();
         bridges = bridgeMaker.makeBridge(bridgeSize);
-        System.out.println(bridges.toString());
+        System.out.println();
         runGame();
-        outputView.printResult(bridgeSize, location);
+        outputView.printResult();
     }
 
     private void runGame() {
