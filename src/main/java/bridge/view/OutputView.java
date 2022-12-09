@@ -14,6 +14,7 @@ public class OutputView {
     private static final String RIGHT = " ]";
     private static final String SUCCESS = "성공";
     private static final String FAIL = "실패";
+    private static int gameCount = 1;
 
 
     /**
@@ -35,19 +36,22 @@ public class OutputView {
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printResult() {
+    public void printResult(String inputRestart) {
         System.out.println(Message.GAME_RESULT.getMessage());
         printMap();
         System.out.println();
         printSuccessOrFailure();
-        printTryCount();
+        printTryCount(inputRestart);
     }
 
     private static void printSuccessOrFailure() {
         System.out.println(Message.SUCCESS_OR_FAILURE.getMessage());
     }
 
-    private static void printTryCount() {
-        System.out.println(Message.TRY_COUNT.getMessage());
+    private static void printTryCount(String inputRestart) {
+        if (inputRestart.equals("R")) {
+            gameCount++;
+        }
+        System.out.println(Message.TRY_COUNT.getMessage() + gameCount);
     }
 }
