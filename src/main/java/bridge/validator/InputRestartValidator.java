@@ -1,7 +1,6 @@
 package bridge.validator;
 
 import bridge.view.ErrorMessage;
-import bridge.view.Message;
 
 public class InputRestartValidator {
     private static final String RESTART = "R";
