@@ -3,6 +3,7 @@ package bridge.view;
 import static bridge.BridgeToMove.getDownBridge;
 import static bridge.BridgeToMove.getUpBridge;
 
+import bridge.BridgeGame;
 import java.util.List;
 
 /**
@@ -14,8 +15,6 @@ public class OutputView {
     private static final String RIGHT = " ]";
     private static final String SUCCESS = "성공";
     private static final String FAIL = "실패";
-    private static int gameCount = 1;
-
 
     /**
      * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
@@ -37,25 +36,20 @@ public class OutputView {
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printResult(String inputRestart, int bridgeSize, int location) {
+    public void printResult(int bridgeSize, int location) {
+        System.out.println();
         System.out.println(Message.GAME_RESULT.getMessage());
         printMap();
-        System.out.println();
         printSuccessOrFailure(bridgeSize, location);
-        printTryCount(inputRestart);
+        System.out.println(Message.TRY_COUNT.getMessage() + BridgeGame.getCount());
     }
 
     private static void printSuccessOrFailure(int bridgeSize, int location) {
         if (bridgeSize == location) {
             System.out.println(Message.SUCCESS_OR_FAILURE.getMessage() + SUCCESS);
         }
-        System.out.println(Message.SUCCESS_OR_FAILURE.getMessage() + FAIL);
-    }
-
-    private static void printTryCount(String inputRestart) {
-        if (inputRestart.equals("R")) {
-            gameCount++;
+        if (bridgeSize != location) {
+            System.out.println(Message.SUCCESS_OR_FAILURE.getMessage() + FAIL);
         }
-        System.out.println(Message.TRY_COUNT.getMessage() + gameCount);
     }
 }
