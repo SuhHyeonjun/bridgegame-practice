@@ -12,14 +12,14 @@ import java.util.List;
 
 public class GameController {
     private static final String FAIL = "X";
+    private static int location = 0;
+    private static boolean status = true;
+    private static List<String> bridges;
     private final InputView inputView = new InputView();
     private final BridgeNumberGenerator bridgeNumberGenerator = new BridgeRandomNumberGenerator();
     private final BridgeMaker bridgeMaker = new BridgeMaker(bridgeNumberGenerator);
     private final BridgeGame bridgeGame = new BridgeGame();
     private final OutputView outputView = new OutputView();
-    private static int location = 0;
-    private static boolean status = true;
-    private static List<String> bridges;
 
     public GameController() {
         location = 0;
