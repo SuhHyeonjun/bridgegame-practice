@@ -1,9 +1,10 @@
 package bridge.view;
 
-import static bridge.BridgeToMove.getDownBridge;
-import static bridge.BridgeToMove.getUpBridge;
+import static bridge.domain.BridgeToMove.getDownBridge;
+import static bridge.domain.BridgeToMove.getUpBridge;
 
-import bridge.BridgeGame;
+import bridge.domain.BridgeGame;
+
 import java.util.List;
 
 /**
